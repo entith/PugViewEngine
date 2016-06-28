@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0",
+  "name": "asp.net",
+  "private": true,
+  "devDependencies": {
+    "deasync": "^0.1.7",
+    "pug": "^2.0.0-beta3"
+  },
+  "-vs-binding": {
+    "ProjectOpened": [ "install" ]
+  }
+}
