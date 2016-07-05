@@ -95,6 +95,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="PugViewEngine.nuspec" />
+    <None Include="tools\Install.ps1" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="edge\double_edge.js">
