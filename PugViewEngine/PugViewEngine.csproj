@@ -94,6 +94,7 @@
     <None Include="node_modules\**\*">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="PugViewEngine.nuspec" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="edge\double_edge.js">

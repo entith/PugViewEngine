@@ -6,7 +6,9 @@ As of now, it only supports MVC 5. MVC 6 (ASP.Net Core) support is planned, but 
 
 ## Installation/Building From Source
 
-A Nuget package will be created soon.
+Can be installed from [NuGet](https://www.nuget.org/packages/PugViewEngine/):
+
+    PM> Install-Package PugViewEngine
 
 ### Building From Source
 
