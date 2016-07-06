@@ -17,5 +17,10 @@ return function (data, callback) {
         return actionResult;
     }
 
-    callback(null, pug.renderFile(data.path, { viewBag: data.viewBag, model: data.model, html: html}));
+    callback(null, pug.renderFile(data.path, { 
+        viewBag: data.viewBag, 
+        model: data.model, 
+        html: html,
+        Enumerable: require('linq')
+    }));
 }

@@ -4,9 +4,12 @@
   "private": true,
   "devDependencies": {
     "deasync": "^0.1.7",
+    "linq": "^3.0.5",
     "pug": "^2.0.0-beta3"
   },
   "-vs-binding": {
-    "ProjectOpened": [ "install" ]
+    "ProjectOpened": [
+      "install"
+    ]
   }
 }
