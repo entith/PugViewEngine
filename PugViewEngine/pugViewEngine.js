@@ -19,7 +19,8 @@ return function (data, callback) {
 
     callback(null, pug.renderFile(data.path, { 
         viewBag: data.viewBag, 
-        model: data.model, 
+        model: data.model,
+        modelErrors: data.modelErrors,
         html: html,
         Enumerable: require('linq')
     }));

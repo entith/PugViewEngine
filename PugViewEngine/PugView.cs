@@ -9,7 +9,7 @@ using System.Web.Mvc;
 using System.Web.Mvc.Html;
 using System.Web.Routing;
 
-namespace PugViewEngine
+namespace Pug.ViewEngine
 {
     public class PugView : IView
     {
@@ -30,9 +30,18 @@ namespace PugViewEngine
 
             object model = viewContext.ViewData.Model;
             object viewBag = viewContext.ViewData;
+            ICollection<KeyValuePair<string, string>> modelErrors = new List<KeyValuePair<string, string>>();
+            foreach (var state in viewContext.ViewData.ModelState)
+            {
+                string key = state.Key;
+                foreach(var error in state.Value.Errors)
+                {
+                    modelErrors.Add(new KeyValuePair<string, string>(key, error.ErrorMessage));
+                }
+            }
 
 #pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
-            var actionHelperMethod = (Func<dynamic, Task<Object>>)( async(input) =>
+            var actionHelperMethod = (Func<dynamic, Task<Object>>)(async (input) =>
             {
                 string action = input.action as string;
                 string controller = input.controller as string;
@@ -65,6 +74,7 @@ namespace PugViewEngine
                 path = _path,
                 viewBag = viewBag,
                 model = model,
+                modelErrors = modelErrors,
                 methods = new
                 {
                     action = actionHelperMethod

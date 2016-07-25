@@ -94,6 +94,39 @@ resulting in:
     <h2>Message:</h2>
     <p>This is our message.</p>
 
+### ModelErrors
+
+`modelErrors` is a collection of key-value pairs, where the key is the model property name and the value is the error message string. It is populated from the `ModelState`.
+
+Example of a login form using `modelErrors` to display error messages (using Bootstrap for styling):
+
+    form(novalidate="novalidate", action="/login", method="post")
+      each error in modelErrors.filter(e => e.Key === "")
+        .alert.alert-danger
+          = error.Value
+      .form-group(class=modelErrors.some(e => e.Key === "Email") ? "has-error" : "")
+        label.control-label(for="Email") Email:
+        input#Email.input-validation-error.form-control(
+          autofocus="autofocus",
+          name="Email",
+          type="text",
+          value=model.Email)
+        each error in modelErrors.filter(e => e.Key === "Email")
+          span.help-block= error.Value
+      .form-group(class=modelErrors.some(e => e.Key === "Password") ? "has-error" : "")
+        label.control-label(for="Password") Password:
+        input#Password.input-validation-error.form-control(
+          autofocus="autofocus",
+          name="Password",
+          type="password")
+        each error in modelErrors.filter(e => e.Key === "Password")
+          span.help-block= error.Value
+      .checkbox
+        label
+          input#RememberMe(type="checkbox", name="RememberMe", value="true", checked=model.RememberMe)
+          | Remember Me?
+      input.btn.btn-primary(type="submit", value="Log in")
+
 ### Html
 
 `html` provide various helpers, similar to `@Html` in Razor views. In fact, most of the Pug `html` helper functions call Razor's `@Html` helper behind the scenes.

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
-namespace PugViewEngine
+namespace Pug.ViewEngine
 {
     public class PugViewEngine : VirtualPathProviderViewEngine
     {
